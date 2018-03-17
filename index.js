@@ -12,8 +12,8 @@ openssl req -x509 -new -key key.pem > cert.pem
 
 
 const options = {
-    key : path.join(__dirname , "/key.pem"),
-    cert :path.join(__dirname, "/cert.pem")
+    key : fs.readFileSync(path.join(__dirname , "/key.pem")),
+    cert : fs.readFileSync(path.join(__dirname, "/cert.pem"))
 }
 
 http.createServer(function(req, res){
